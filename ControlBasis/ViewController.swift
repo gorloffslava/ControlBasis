@@ -15,10 +15,15 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var amountLabel: UILabel!
     
+    @IBAction func respondToTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: self.view)
+        print(location)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.percentLabel.text = "\(self.slider.value.rounded())%"
         self.amountLabel.text = "0$"
+        self.button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
